@@ -4,6 +4,7 @@
  */
 
 import { validarPublicacion } from "./validation/postValidator.js";
+import { enviarPublicacion } from "./api/apiClient.js";
 
 // ---------- Selección del DOM (referencias cacheadas, se reutilizan en todo el flujo) ----------
 
@@ -40,14 +41,69 @@ function ocultarMensaje(contenedor) {
   contenedor.classList.add("mensaje--oculto");
 }
 
+// ---------- Estados de carga y controles ----------
+
+/**
+ * Activa el estado de carga: muestra el indicador, deshabilita el botón
+ * y oculta resultados anteriores para evitar confusiones.
+ * @param {boolean} cargando - true para activar, false para restablecer.
+ */
+function establecerCarga(cargando) {
+  elementos.botonPublicar.disabled = cargando;
+  elementos.estadoCarga.setAttribute("aria-busy", String(cargando));
+
+  if (cargando) {
+    mostrarMensaje(elementos.estadoCarga, "Publicando mensaje...", "carga");
+    ocultarMensaje(elementos.resultado);
+  } else {
+    ocultarMensaje(elementos.estadoCarga);
+  }
+}
+
+// ---------- Presentación del resultado ----------
+
+/**
+ * Muestra la respuesta devuelta por la API en la región de resultados.
+ * Se usa textContent para presentar los datos externos de forma segura.
+ * @param {object} respuesta - Objeto devuelto por la API.
+ */
+function mostrarResultado(respuesta) {
+  elementos.resultado.replaceChildren();
+
+  const titulo = document.createElement("h2");
+  titulo.textContent = "Publicación enviada";
+
+  const lista = document.createElement("dl");
+
+  const campos = [
+    ["ID asignado", respuesta.id],
+    ["Título", respuesta.title],
+    ["Contenido", respuesta.body],
+    ["ID de autor", respuesta.userId],
+  ];
+
+  for (const [etiqueta, valor] of campos) {
+    const termino = document.createElement("dt");
+    termino.textContent = etiqueta;
+
+    const descripcion = document.createElement("dd");
+    descripcion.textContent = String(valor ?? "(sin valor)");
+
+    lista.append(termino, descripcion);
+  }
+
+  elementos.resultado.append(titulo, lista);
+  elementos.resultado.classList.remove("mensaje--oculto");
+}
+
 // ---------- Gestión del evento de envío ----------
 
 /**
- * Maneja el envío del formulario: evita la recarga, valida los datos
- * y evita la petición HTTP si los datos no son válidos.
+ * Maneja el envío del formulario: evita la recarga, valida los datos,
+ * envía la petición HTTP y procesa la respuesta asíncrona.
  * @param {Event} event - Evento submit del formulario.
  */
-function manejarEnvio(event) {
+async function manejarEnvio(event) {
   event.preventDefault();
 
   const datos = {
@@ -68,14 +124,27 @@ function manejarEnvio(event) {
   }
 
   ocultarMensaje(elementos.mensajeValidacion);
+  establecerCarga(true);
 
-  // En esta etapa solo se confirma que la validación pasó.
-  // La petición HTTP se incorpora en la siguiente etapa del desarrollo.
-  mostrarMensaje(
-    elementos.mensajeValidacion,
-    "Datos válidos. La publicación está lista para enviarse.",
-    "exito"
-  );
+  try {
+    const respuesta = await enviarPublicacion(validacion);
+    mostrarResultado(respuesta);
+    mostrarMensaje(
+      elementos.mensajeValidacion,
+      "Publicación creada correctamente.",
+      "exito"
+    );
+  } catch (error) {
+    // Distingue la causa para ofrecer un mensaje comprensible.
+    mostrarMensaje(
+      elementos.mensajeValidacion,
+      error.message || "Ocurrió un error inesperado al publicar.",
+      "error"
+    );
+  } finally {
+    // Se restablece SIEMPRE, incluso si la operación falló.
+    establecerCarga(false);
+  }
 }
 
 // Un único listener registrado una sola vez (evita registros duplicados).
