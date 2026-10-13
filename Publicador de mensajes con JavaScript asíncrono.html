@@ -1,0 +1,540 @@
+<div style="font-family: Arial, sans-serif; color: #212322; line-height: 1.6; margin-bottom: 20px; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 20px; box-sizing: border-box;">
+
+  <!-- BANNER PRINCIPAL INSTITUCIONAL -->
+  <div style="background-color: #6802c1; color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.15); margin-bottom: 30px; font-family: 'Helvetica Neue', Arial, sans-serif;">
+    <p style="font-size: 13px; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 8px 0; color: #ffffff;">INGENIERÍA WEB · TRABAJO PRÁCTICO</p>
+    <h1 style="color: #ffffff; margin: 0 0 15px 0; font-size: 26px; font-weight: bold; border-bottom: 2px solid #63AEE6; padding-bottom: 15px; line-height: 1.35;">DESARROLLO DE UN PUBLICADOR DE MENSAJES CON JAVASCRIPT ASÍNCRONO, FETCH Y DOM</h1>
+    <p style="font-size: 16px; margin: 10px 0; color: #ffffff;">Construcción de una miniaplicación web que valida datos, consume una API REST mediante HTTP POST y presenta dinámicamente los resultados.</p>
+    <div style="margin-top: 20px; padding: 12px; background-color: rgba(255,255,255,0.12); border-radius: 5px;">
+      <table style="width: 100%; border-collapse: collapse; color: #ffffff; font-size: 14px;">
+        <tbody>
+          <tr>
+            <td style="padding: 6px; width: 45%; border-bottom: 1px solid rgba(255,255,255,0.2);"><strong>Duración total</strong></td>
+            <td style="padding: 6px; border-bottom: 1px solid rgba(255,255,255,0.2);">44 minutos</td>
+          </tr>
+          <tr>
+            <td style="padding: 6px; border-bottom: 1px solid rgba(255,255,255,0.2);"><strong>Modalidad</strong></td>
+            <td style="padding: 6px; border-bottom: 1px solid rgba(255,255,255,0.2);">Trabajo colaborativo por equipos</td>
+          </tr>
+          <tr>
+            <td style="padding: 6px; border-bottom: 1px solid rgba(255,255,255,0.2);"><strong>Puntaje máximo</strong></td>
+            <td style="padding: 6px; border-bottom: 1px solid rgba(255,255,255,0.2);">60 puntos (escala de 0 a 20)</td>
+          </tr>
+          <tr>
+            <td style="padding: 6px;"><strong>Producto</strong></td>
+            <td style="padding: 6px;">Miniaplicación web funcional y demostración técnica</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PRESENTACIÓN -->
+  <div style="background-color: #ffffff; border: 1px solid #E9ECEF; border-radius: 6px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 4px rgba(0,0,0,0.03);">
+    <h2 style="color: #6802c1; font-size: 21px; margin-top: 0; padding-bottom: 8px; border-bottom: 2px solid #E9ECEF;">1. Presentación de la actividad</h2>
+    <p>En este trabajo práctico, tu equipo desarrollará una miniaplicación web denominada <strong>Publicador de mensajes</strong>. La aplicación permitirá ingresar el título y el contenido de una publicación, validar los datos, enviarlos a una API REST mediante una petición HTTP <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">POST</code>, procesar la respuesta asíncrona y actualizar la interfaz utilizando JavaScript y el DOM.</p>
+    <p>El propósito no es solamente obtener una aplicación funcional, sino demostrar que comprendes el código implementado, el flujo de una petición HTTP y el tratamiento de los resultados y errores.</p>
+    <div style="background-color: #f8f9fa; border-left: 6px solid #6802c1; padding: 16px; border-radius: 4px; margin-top: 15px;">
+      <strong style="color: #6802c1;">Propósito de aprendizaje</strong>
+      <p style="margin-bottom: 0;">Desarrollar una miniaplicación web que consuma una API mediante Fetch, utilice programación asíncrona, valide los datos de entrada y actualice dinámicamente el DOM, incorporando mecanismos básicos de gestión de errores y pruebas funcionales.</p>
+    </div>
+  </div>
+
+  <!-- DATOS Y RECURSOS -->
+  <div style="background-color: #ffffff; border: 1px solid #E9ECEF; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+    <h2 style="color: #6802c1; font-size: 21px; margin-top: 0; padding-bottom: 8px; border-bottom: 2px solid #E9ECEF;">2. Recursos y API de trabajo</h2>
+    <p>Utiliza los siguientes recursos para implementar y probar tu miniaplicación.</p>
+    <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+      <thead>
+        <tr style="background-color: #6802c1; color: #ffffff;">
+          <th style="padding: 10px; border: 1px solid #E9ECEF; text-align: left;">Recurso</th>
+          <th style="padding: 10px; border: 1px solid #E9ECEF; text-align: left;">Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background-color: #ffffff;">
+          <td style="padding: 10px; border: 1px solid #E9ECEF;"><strong>HTML5</strong></td>
+          <td style="padding: 10px; border: 1px solid #E9ECEF;">Estructura del formulario, campos y contenedores de mensajes.</td>
+        </tr>
+        <tr style="background-color: #f8f9fa;">
+          <td style="padding: 10px; border: 1px solid #E9ECEF;"><strong>CSS3</strong></td>
+          <td style="padding: 10px; border: 1px solid #E9ECEF;">Presentación visual y legibilidad de la interfaz.</td>
+        </tr>
+        <tr style="background-color: #ffffff;">
+          <td style="padding: 10px; border: 1px solid #E9ECEF;"><strong>JavaScript</strong></td>
+          <td style="padding: 10px; border: 1px solid #E9ECEF;">Eventos, validaciones, operaciones asíncronas y actualización del DOM.</td>
+        </tr>
+        <tr style="background-color: #f8f9fa;">
+          <td style="padding: 10px; border: 1px solid #E9ECEF;"><strong>API REST</strong></td>
+          <td style="padding: 10px; border: 1px solid #E9ECEF;"><a href="https://jsonplaceholder.typicode.com/posts" target="_blank" rel="noopener noreferrer" style="color: #0202c6; text-decoration: underline;">https://jsonplaceholder.typicode.com/posts</a></td>
+        </tr>
+        <tr style="background-color: #ffffff;">
+          <td style="padding: 10px; border: 1px solid #E9ECEF;"><strong>Herramientas del navegador</strong></td>
+          <td style="padding: 10px; border: 1px solid #E9ECEF;">Consola y pestaña Network para revisar solicitudes, respuestas y errores.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="background-color: #fff8e6; border-left: 6px solid #ffd166; padding: 15px; margin-top: 15px; border-radius: 4px;">
+      <strong style="color: #212322;">Importante sobre la API</strong>
+      <p style="margin-bottom: 0;">JSONPlaceholder es una API de prueba. Devuelve una respuesta simulada al crear una publicación, pero no garantiza que los datos se almacenen permanentemente. No confundas recibir una respuesta satisfactoria con disponer de almacenamiento persistente.</p>
+    </div>
+  </div>
+
+  <!-- RETO -->
+  <div style="background-color: #ffffff; border: 1px solid #E9ECEF; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+    <h2 style="color: #6802c1; font-size: 21px; margin-top: 0; padding-bottom: 8px; border-bottom: 2px solid #E9ECEF;">3. Descripción del reto</h2>
+    <h3 style="color: #0202c6; font-size: 17px;">Publicador de mensajes</h3>
+    <p>Construye una interfaz web que permita a un usuario redactar una publicación y enviarla al servidor de prueba. La aplicación debe proporcionar información clara durante el procesamiento, mostrar la respuesta recibida y gestionar los errores que puedan presentarse.</p>
+    <p><strong>La aplicación deberá implementar cinco funcionalidades principales:</strong></p>
+    <ol style="padding-left: 25px;">
+      <li style="margin-bottom: 8px;">Capturar el título y el contenido de la publicación mediante un formulario HTML.</li>
+      <li style="margin-bottom: 8px;">Validar los datos antes de realizar la petición HTTP.</li>
+      <li style="margin-bottom: 8px;">Enviar los datos a la API mediante Fetch con el método POST y formato JSON.</li>
+      <li style="margin-bottom: 8px;">Procesar la respuesta asíncrona y mostrar el resultado en el DOM.</li>
+      <li style="margin-bottom: 8px;">Gestionar estados de carga, errores y prevención de envíos repetidos.</li>
+    </ol>
+  </div>
+
+  <!-- INSTRUCCIONES PASO A PASO -->
+  <div style="background-color: #ffffff; border: 1px solid #E9ECEF; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+    <h2 style="color: #6802c1; font-size: 21px; margin-top: 0; padding-bottom: 8px; border-bottom: 2px solid #E9ECEF;">4. Instrucciones de desarrollo</h2>
+
+    <h3 style="color: #0202c6; font-size: 17px;">Paso 1. Construir el formulario</h3>
+    <p>Crea una interfaz que contenga un campo de texto para el título, un área de texto para el contenido, un botón para publicar y un espacio donde presentar mensajes de validación y resultados.</p>
+    <p><strong>Verificación:</strong> los campos permiten ingresar información y el botón se identifica claramente.</p>
+
+    <h3 style="color: #0202c6; font-size: 17px;">Paso 2. Implementar las validaciones</h3>
+    <p>Comprueba que el título y el contenido no estén vacíos ni contengan únicamente espacios. Si los datos son inválidos, muestra un mensaje en la interfaz y evita realizar la petición.</p>
+    <p><strong>Verificación:</strong> el formulario no envía una solicitud cuando los campos son inválidos.</p>
+
+    <h3 style="color: #0202c6; font-size: 17px;">Paso 3. Preparar la petición HTTP</h3>
+    <p>Construye un objeto con los datos de la publicación y configura la solicitud a la API. Utiliza el método POST, el encabezado Content-Type con el valor application/json y un cuerpo serializado mediante <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">JSON.stringify()</code>.</p>
+    <div style="background-color: #212322; color: #f8f9fa; padding: 15px; border-radius: 5px; font-family: monospace; font-size: 13px; overflow-x: auto; margin: 12px 0;">
+      <span style="color: #63AEE6;">URL:</span> https://jsonplaceholder.typicode.com/posts<br>
+      <span style="color: #63AEE6;">Método:</span> POST<br>
+      <span style="color: #63AEE6;">Content-Type:</span> application/json<br>
+      <span style="color: #ffd166;">Cuerpo:</span> objeto JavaScript convertido a JSON
+    </div>
+    <p><strong>Verificación:</strong> la solicitud utiliza el método y el formato de datos especificados.</p>
+
+    <h3 style="color: #0202c6; font-size: 17px;">Paso 4. Procesar la respuesta asíncrona</h3>
+    <p>Utiliza <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">async/await</code> o promesas para procesar la respuesta. Comprueba <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">response.ok</code> antes de considerar satisfactoria la operación y utiliza <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">response.json()</code> para interpretar la respuesta.</p>
+    <p><strong>Verificación:</strong> la interfaz muestra los datos relevantes devueltos por la API.</p>
+
+    <h3 style="color: #0202c6; font-size: 17px;">Paso 5. Actualizar el DOM y gestionar errores</h3>
+    <p>Muestra un indicador de carga mientras se procesa la solicitud. Deshabilita temporalmente el botón de publicación, presenta mensajes de éxito o error y restablece los controles al finalizar la operación, incluso si ocurre un error.</p>
+    <p>Utiliza <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">textContent</code> para presentar texto externo de forma segura.</p>
+    <p><strong>Verificación:</strong> la interfaz refleja correctamente los estados de la operación y permite realizar nuevos intentos.</p>
+  </div>
+
+  <!-- REQUISITOS TÉCNICOS -->
+  <div style="background-color: #ffffff; border: 1px solid #E9ECEF; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+    <h2 style="color: #6802c1; font-size: 21px; margin-top: 0; padding-bottom: 8px; border-bottom: 2px solid #E9ECEF;">5. Requisitos técnicos obligatorios</h2>
+    <p>La miniaplicación debe cumplir los siguientes requisitos:</p>
+    <ol style="padding-left: 25px;">
+      <li style="margin-bottom: 8px;">Separar HTML, CSS y JavaScript en archivos independientes.</li>
+      <li style="margin-bottom: 8px;">Utilizar <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">addEventListener()</code> para gestionar el envío del formulario.</li>
+      <li style="margin-bottom: 8px;">Evitar la recarga de la página durante el envío mediante <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">event.preventDefault()</code>.</li>
+      <li style="margin-bottom: 8px;">Utilizar Fetch con el método POST y el encabezado Content-Type: application/json.</li>
+      <li style="margin-bottom: 8px;">Serializar el objeto de publicación mediante JSON.stringify().</li>
+      <li style="margin-bottom: 8px;">Procesar la respuesta con promesas o async/await.</li>
+      <li style="margin-bottom: 8px;">Comprobar response.ok antes de tratar la respuesta HTTP como satisfactoria.</li>
+      <li style="margin-bottom: 8px;">Utilizar response.json() para interpretar el cuerpo JSON cuando corresponda.</li>
+      <li style="margin-bottom: 8px;">Validar los campos antes de enviar la petición.</li>
+      <li style="margin-bottom: 8px;">Mostrar los mensajes y resultados mediante el DOM.</li>
+      <li style="margin-bottom: 8px;">Controlar los errores de conexión, HTTP y procesamiento de la respuesta.</li>
+      <li style="margin-bottom: 8px;">Deshabilitar el botón durante el envío y restablecer su estado al finalizar.</li>
+      <li style="margin-bottom: 8px;">Utilizar mecanismos seguros para presentar los datos externos.</li>
+    </ol>
+    <div style="background-color: #f8f9fa; border-left: 6px solid #6802c1; padding: 15px; border-radius: 4px;">
+      <strong style="color: #6802c1;">Consideración técnica</strong>
+      <p style="margin-bottom: 0;">Fetch no rechaza automáticamente la promesa ante todos los errores HTTP. Una respuesta 404 o 500 debe identificarse mediante la comprobación del estado HTTP. Los errores de conexión y los errores al interpretar JSON requieren un tratamiento apropiado.</p>
+    </div>
+  </div>
+
+  <!-- PLAN DE TIEMPO -->
+  <div style="background-color: #ffffff; border: 1px solid #E9ECEF; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+    <h2 style="color: #6802c1; font-size: 21px; margin-top: 0; padding-bottom: 8px; border-bottom: 2px solid #E9ECEF;">6. Organización del trabajo: 44 minutos</h2>
+    <div style="overflow-x: auto; width: 100%;">
+      <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+        <thead>
+          <tr style="background-color: #6802c1; color: #ffffff;">
+            <th style="padding: 10px; border: 1px solid #E9ECEF; text-align: left;">Fase</th>
+            <th style="padding: 10px; border: 1px solid #E9ECEF; text-align: center;">Tiempo</th>
+            <th style="padding: 10px; border: 1px solid #E9ECEF; text-align: left;">Actividades</th>
+            <th style="padding: 10px; border: 1px solid #E9ECEF; text-align: left;">Resultado esperado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #ffffff;">
+            <td style="padding: 10px; border: 1px solid #E9ECEF;"><strong>1. Análisis</strong></td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF; text-align: center;">5 min</td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF;">Analizar requisitos, entradas, API y eventos; distribuir responsabilidades.</td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF;">Plan de trabajo definido.</td>
+          </tr>
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 10px; border: 1px solid #E9ECEF;"><strong>2. Interfaz</strong></td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF; text-align: center;">7 min</td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF;">Construir el formulario, los controles y los contenedores de mensajes.</td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF;">Interfaz operativa.</td>
+          </tr>
+          <tr style="background-color: #ffffff;">
+            <td style="padding: 10px; border: 1px solid #E9ECEF;"><strong>3. Implementación</strong></td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF; text-align: center;">16 min</td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF;">Programar eventos, validaciones, Fetch, procesamiento JSON y actualización del DOM.</td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF;">Funcionalidad principal implementada.</td>
+          </tr>
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 10px; border: 1px solid #E9ECEF;"><strong>4. Pruebas</strong></td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF; text-align: center;">9 min</td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF;">Probar campos vacíos, envío válido, respuesta y errores; revisar Network y consola.</td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF;">Evidencia de pruebas.</td>
+          </tr>
+          <tr style="background-color: #ffffff;">
+            <td style="padding: 10px; border: 1px solid #E9ECEF;"><strong>5. Demostración</strong></td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF; text-align: center;">7 min</td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF;">Ejecutar el caso de uso y responder preguntas técnicas.</td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF;">Funcionamiento y aprendizaje demostrados.</td>
+          </tr>
+          <tr style="background-color: #e9ecef; font-weight: bold;">
+            <td style="padding: 10px; border: 1px solid #E9ECEF;">TOTAL</td>
+            <td style="padding: 10px; border: 1px solid #E9ECEF; text-align: center;">44 min</td>
+            <td colspan="2" style="padding: 10px; border: 1px solid #E9ECEF;">Desarrollo, pruebas y demostración de la miniaplicación.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ENTREGABLES -->
+  <div style="background-color: #ffffff; border: 1px solid #E9ECEF; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+    <h2 style="color: #6802c1; font-size: 21px; margin-top: 0; padding-bottom: 8px; border-bottom: 2px solid #E9ECEF;">7. Entregables</h2>
+    <p>Al finalizar la actividad, cada equipo debe presentar:</p>
+    <ol style="padding-left: 25px;">
+      <li style="margin-bottom: 8px;"><strong>Código fuente:</strong> archivos HTML, CSS y JavaScript organizados.</li>
+      <li style="margin-bottom: 8px;"><strong>Miniaplicación funcional:</strong> ejecutable en un navegador web.</li>
+      <li style="margin-bottom: 8px;"><strong>Pruebas:</strong> demostración de validación, publicación y presentación de la respuesta.</li>
+      <li style="margin-bottom: 8px;"><strong>Verificación técnica:</strong> revisión de la petición y la respuesta en las herramientas de desarrollo del navegador.</li>
+      <li style="margin-bottom: 8px;"><strong>Explicación:</strong> identificación de los fragmentos de código que implementan el evento, la petición HTTP, el procesamiento asíncrono y la actualización del DOM.</li>
+      <li style="margin-bottom: 8px;"><strong>URL del repositorion:</strong> Comparta el URL del repositorio mediante el formulario proporcionada por el docente.</li>
+    </ol>
+    <div style="background-color: #f8f9fa; border-left: 6px solid #6802c1; padding: 15px; border-radius: 4px;">
+      <strong style="color: #6802c1;">Responsabilidad individual</strong>
+      <p style="margin-bottom: 0;">Todos los integrantes deben conocer la solución completa y estar preparados para explicar el código. El docente podrá seleccionar a cualquier integrante para responder las preguntas de demostración.</p>
+    </div>
+  </div>
+
+  <!-- BANCO DE PREGUNTAS -->
+  <div style="background-color: #ffffff; border: 1px solid #E9ECEF; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+    <h2 style="color: #6802c1; font-size: 21px; margin-top: 0; padding-bottom: 8px; border-bottom: 2px solid #E9ECEF;">8. Banco de 30 preguntas para la demostración</h2>
+    <p>El banco de preguntas permite comprobar la comprensión conceptual, el dominio del código, la capacidad de análisis y la capacidad de proponer mejoras. El docente seleccionará preguntas para la demostración oral.</p>
+
+    <h3 style="color: #0202c6; font-size: 17px;">A. HTML y manipulación del DOM</h3>
+    <ol style="padding-left: 25px;">
+      <li style="margin-bottom: 10px;"><strong>¿Qué función cumple el formulario HTML en la miniaplicación y qué ventajas ofrece frente a utilizar únicamente botones y campos independientes?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Qué diferencia existe entre <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">querySelector()</code> y <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">getElementById()</code>?</strong> ¿Cuál utilizaste y por qué?</li>
+      <li style="margin-bottom: 10px;"><strong>¿Cómo se obtiene el contenido ingresado por el usuario en los campos del título y del mensaje?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Qué función cumple <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">addEventListener()</code>?</strong> ¿Qué evento utilizaste para detectar el envío del formulario?</li>
+      <li style="margin-bottom: 10px;"><strong>¿Por qué se recomienda utilizar <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">textContent</code> en lugar de insertar directamente los datos mediante <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">innerHTML</code>?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Cómo actualiza JavaScript el DOM para mostrar un mensaje de éxito o error sin recargar toda la página?</strong></li>
+    </ol>
+
+    <h3 style="color: #0202c6; font-size: 17px;">B. JavaScript asíncrono y promesas</h3>
+    <ol start="7" style="padding-left: 25px;">
+      <li style="margin-bottom: 10px;"><strong>¿Qué significa que una operación sea asíncrona?</strong> Identifica una operación asíncrona en tu aplicación.</li>
+      <li style="margin-bottom: 10px;"><strong>¿Qué es una promesa en JavaScript y qué relación tiene con la función <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">fetch()</code>?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Qué diferencia existe entre utilizar <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">async/await</code> y utilizar <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">.then()</code> y <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">.catch()</code>?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Qué función cumple la palabra clave <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">async</code> y qué tipo de valor devuelve esa función?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Qué función cumple <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">await</code> cuando se utiliza para esperar la respuesta de <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">fetch()</code>?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Qué ocurriría si se eliminara <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">await</code> delante de <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">response.json()</code>?</strong></li>
+    </ol>
+
+    <h3 style="color: #0202c6; font-size: 17px;">C. Fetch API y peticiones HTTP</h3>
+    <ol start="13" style="padding-left: 25px;">
+      <li style="margin-bottom: 10px;"><strong>¿Qué es la Fetch API y para qué se utiliza en la miniaplicación?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Qué diferencia existe entre una petición HTTP GET y una petición POST?</strong> ¿Por qué se utiliza POST en este ejercicio?</li>
+      <li style="margin-bottom: 10px;"><strong>¿Qué función cumple el encabezado <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">Content-Type: application/json</code>?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Por qué se utiliza <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">JSON.stringify()</code> en el cuerpo de la petición?</strong> ¿Qué recibe y qué devuelve?</li>
+      <li style="margin-bottom: 10px;"><strong>¿Qué información contiene el objeto de configuración que se entrega como segundo argumento a <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">fetch()</code>?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Qué función cumple <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">response.json()</code>?</strong> ¿En qué se diferencia de JSON.stringify()?</li>
+    </ol>
+
+    <h3 style="color: #0202c6; font-size: 17px;">D. Manejo de respuestas y errores</h3>
+    <ol start="19" style="padding-left: 25px;">
+      <li style="margin-bottom: 10px;"><strong>¿Qué representa la propiedad <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">response.ok</code> y por qué debe comprobarse antes de considerar exitosa una petición?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Qué diferencia existe entre un error HTTP, como un estado 404, y un error de conexión?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Qué sucede si el servidor devuelve una respuesta HTTP no satisfactoria y el código no comprueba response.ok?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Para qué se utiliza <code style="background-color: #e9ecef; color: #6802c1; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px;">try/catch</code> cuando se trabaja con async/await?</strong> ¿Qué errores puede ayudar a gestionar?</li>
+      <li style="margin-bottom: 10px;"><strong>¿Qué ocurriría si la respuesta del servidor no contuviera JSON válido y se ejecutara response.json()?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Cómo modificarías la aplicación para que muestre un mensaje comprensible cuando falle la conexión con el servidor?</strong></li>
+    </ol>
+
+    <h3 style="color: #0202c6; font-size: 17px;">E. Validación, interfaz y comportamiento</h3>
+    <ol start="25" style="padding-left: 25px;">
+      <li style="margin-bottom: 10px;"><strong>¿Por qué es necesario validar el título y el contenido antes de enviar la petición?</strong> ¿Cómo impedirías enviar campos vacíos o que solo contengan espacios?</li>
+      <li style="margin-bottom: 10px;"><strong>¿Por qué conviene deshabilitar temporalmente el botón mientras se procesa la petición?</strong> ¿Cuándo debería habilitarse nuevamente?</li>
+      <li style="margin-bottom: 10px;"><strong>¿Cómo implementarías un indicador de carga y qué debería ocurrir si falla la operación?</strong></li>
+      <li style="margin-bottom: 10px;"><strong>¿Cómo evitarías que el navegador recargue la página al enviar el formulario?</strong> Explica el propósito de event.preventDefault().</li>
+    </ol>
+
+    <h3 style="color: #0202c6; font-size: 17px;">F. Análisis, pruebas y mejoras</h3>
+    <ol start="29" style="padding-left: 25px;">
+      <li style="margin-bottom: 10px;"><strong>¿Cómo comprobarías, mediante las herramientas de desarrollo del navegador, que la petición POST se ejecutó correctamente?</strong> Indica qué revisarías en Network.</li>
+      <li style="margin-bottom: 10px;"><strong>Si el servidor devuelve una respuesta satisfactoria con un identificador, pero no encuentras el mensaje al volver a consultar la API, ¿cómo explicarías ese comportamiento en JSONPlaceholder?</strong> ¿Qué cambiarías para implementar almacenamiento persistente real?</li>
+    </ol>
+
+    <div style="background-color: #f8f9fa; border-left: 6px solid #6802c1; padding: 16px; border-radius: 4px; margin-top: 20px;">
+      <strong style="color: #6802c1;">Orientación para la demostración oral</strong>
+      <p style="margin-bottom: 0;">El docente seleccionará preguntas de diferentes bloques y podrá pedir al estudiante que identifique en el código las instrucciones relacionadas con su respuesta. Se valorará la precisión técnica, la explicación con palabras propias y la capacidad de analizar el comportamiento de la aplicación.</p>
+    </div>
+  </div>
+
+  <!-- RÚBRICA -->
+  <div style="background-color: #ffffff; border: 1px solid #E9ECEF; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+    <h2 style="color: #6802c1; font-size: 21px; margin-top: 0; padding-bottom: 8px; border-bottom: 2px solid #E9ECEF;">9. Rúbrica de evaluación detallada</h2>
+    <p>La evaluación comprende 20 criterios. Cada criterio se valora en una escala de 0 a 3 puntos, de acuerdo con la evidencia presentada. El puntaje máximo es de 60 puntos.</p>
+    <div style="background-color: #f8f9fa; border-left: 6px solid #6802c1; padding: 15px; border-radius: 4px; margin-bottom: 18px;">
+      <strong style="color: #6802c1;">Niveles de desempeño</strong>
+      <p style="margin: 5px 0;"><strong>3 — Sobresaliente:</strong> cumple todos los requisitos del criterio con excelencia y aporta mejoras pertinentes.</p>
+      <p style="margin: 5px 0;"><strong>2 — Suficiente:</strong> cumple los requisitos mínimos sin errores críticos.</p>
+      <p style="margin: 5px 0;"><strong>1 — En desarrollo:</strong> presenta fallos, omisiones o implementación incompleta.</p>
+      <p style="margin: 5px 0 0 0;"><strong>0 — Insatisfactorio:</strong> no cumple el criterio, no aporta evidencia o presenta errores graves.</p>
+    </div>
+
+    <p style="font-size: 13px; color: #6c757d;">La tabla contiene descripciones detalladas para facilitar una evaluación consistente. En dispositivos móviles, desliza horizontalmente para consultar todos los niveles.</p>
+
+    <div style="overflow-x: auto; width: 100%; margin-bottom: 15px;">
+      <table style="width: 100%; min-width: 1050px; border-collapse: collapse; font-size: 12px; line-height: 1.5;">
+        <thead>
+          <tr style="background-color: #6802c1; color: #ffffff;">
+            <th style="padding: 10px; border: 1px solid #E9ECEF; text-align: left; width: 22%;">Criterio / Indicador</th>
+            <th style="padding: 10px; border: 1px solid #E9ECEF; text-align: left; width: 19.5%;">Sobresaliente (3)</th>
+            <th style="padding: 10px; border: 1px solid #E9ECEF; text-align: left; width: 19.5%;">Suficiente (2)</th>
+            <th style="padding: 10px; border: 1px solid #E9ECEF; text-align: left; width: 19.5%;">En desarrollo (1)</th>
+            <th style="padding: 10px; border: 1px solid #E9ECEF; text-align: left; width: 19.5%;">Insatisfactorio (0)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: #ffffff;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>1. Estructura HTML del formulario:</strong> campos para título y contenido, botón de publicación y áreas de mensajes y resultados.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Implementa todos los elementos, con etiquetas semánticas, asociación correcta de etiquetas y campos, y mejoras de accesibilidad y usabilidad.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Implementa todos los elementos requeridos y permite ingresar y enviar datos sin errores críticos.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Presenta campos incompletos, etiquetas inadecuadas o dificultades parciales de interacción.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No implementa el formulario funcional o la estructura impide utilizarlo.</td>
+          </tr>
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>2. Separación de responsabilidades:</strong> organiza HTML, CSS y JavaScript en archivos independientes y mantenibles.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Mantiene los tres archivos separados, con responsabilidades claras, nombres descriptivos y código organizado.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Mantiene HTML, CSS y JavaScript separados y la aplicación funciona correctamente.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">La separación es parcial o existe lógica mezclada con la presentación.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No separa las responsabilidades o la organización impide identificar la lógica requerida.</td>
+          </tr>
+          <tr style="background-color: #ffffff;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>3. Selección y acceso al DOM:</strong> identifica campos, formulario, botón y áreas de mensajes mediante selectores apropiados.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Selecciona correctamente todos los elementos, reutiliza referencias y evita consultas innecesarias o errores de selección.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Obtiene correctamente los elementos necesarios para ejecutar las funcionalidades.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Presenta selectores incorrectos o referencias inconsistentes que afectan algunas funcionalidades.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No consigue acceder a los elementos necesarios para implementar la aplicación.</td>
+          </tr>
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>4. Gestión de eventos:</strong> utiliza addEventListener() para capturar el envío y preventDefault() para evitar la recarga.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Gestiona correctamente el evento, evita recargas y controla eventos duplicados o interacciones no deseadas.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Gestiona el envío correctamente y evita la recarga de la página.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">El evento funciona parcialmente, provoca recargas ocasionales o presenta comportamientos inconsistentes.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No gestiona correctamente el evento o la recarga impide completar la operación.</td>
+          </tr>
+          <tr style="background-color: #ffffff;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>5. Validación de datos:</strong> comprueba que título y contenido no estén vacíos ni contengan únicamente espacios.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Valida ambos campos con trim() o técnica equivalente, comunica errores claramente y evita todas las solicitudes inválidas probadas.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Impide el envío de campos vacíos y muestra mensajes comprensibles.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Valida solo algunos casos o permite enviar datos que contienen únicamente espacios.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No implementa validaciones o permite enviar formularios vacíos sin advertencia.</td>
+          </tr>
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>6. Construcción de la petición HTTP:</strong> utiliza URL, método POST, encabezado Content-Type y cuerpo JSON correctos.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Construye correctamente la petición, incluye los datos esperados y mantiene una configuración coherente, sin parámetros innecesarios.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Configura correctamente URL, método, encabezado y cuerpo de la petición.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">La petición presenta errores de configuración o transmite datos incompletos.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No implementa la petición POST o su configuración impide enviar los datos.</td>
+          </tr>
+          <tr style="background-color: #ffffff;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>7. Serialización de datos:</strong> utiliza JSON.stringify() para convertir el objeto de publicación al formato JSON.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Serializa todos los campos correctamente, construye un objeto claro y evita propiedades innecesarias.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Convierte los datos a JSON y los envía en el cuerpo de la petición.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">La serialización es incompleta o presenta errores que afectan el contenido enviado.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No serializa los datos o envía un cuerpo incompatible con el formato requerido.</td>
+          </tr>
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>8. Programación asíncrona:</strong> utiliza promesas o async/await para procesar la respuesta en el orden adecuado.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Implementa el flujo asíncrono correctamente, controla resultados y mantiene un tratamiento coherente de errores.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Utiliza correctamente promesas o async/await y procesa la respuesta en el orden correspondiente.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Presenta errores en el encadenamiento de promesas, uso de await o secuencia de procesamiento.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No gestiona correctamente la asincronía o no consigue procesar la respuesta.</td>
+          </tr>
+          <tr style="background-color: #ffffff;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>9. Verificación de la respuesta HTTP:</strong> comprueba response.ok y distingue respuestas satisfactorias y no satisfactorias.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Verifica el estado HTTP, trata respuestas no satisfactorias y presenta mensajes diferenciados según el resultado.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Comprueba response.ok antes de considerar satisfactoria la operación y gestiona los errores HTTP.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Comprueba el estado parcialmente o presenta respuestas no satisfactorias como exitosas en algunos casos.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No verifica el estado HTTP y considera exitosa cualquier respuesta recibida.</td>
+          </tr>
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>10. Procesamiento de respuesta JSON:</strong> utiliza response.json() y extrae los datos devueltos por la API.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Procesa correctamente la respuesta, utiliza los campos pertinentes y contempla errores de interpretación del JSON.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Procesa la respuesta JSON y obtiene los datos necesarios para mostrar el resultado.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Procesa parcialmente la respuesta o presenta errores al acceder a sus propiedades.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No procesa la respuesta o no consigue obtener los datos devueltos por la API.</td>
+          </tr>
+          <tr style="background-color: #ffffff;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>11. Actualización dinámica del DOM:</strong> presenta el resultado y los mensajes de estado sin recargar la página.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Actualiza correctamente la interfaz, presenta los datos relevantes y mantiene los mensajes coherentes con cada estado.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Muestra el resultado y los mensajes principales en el DOM sin recargar la página.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Actualiza parcialmente la interfaz o presenta mensajes incompletos o inconsistentes.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No muestra el resultado o depende de una recarga para presentar los datos.</td>
+          </tr>
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>12. Seguridad al presentar datos:</strong> utiliza textContent u otro mecanismo seguro para mostrar texto externo.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Presenta los datos mediante mecanismos seguros en todos los puntos pertinentes y evita la inserción insegura de contenido externo.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Utiliza textContent o una técnica equivalente para presentar de forma segura los datos recibidos.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Mantiene algún punto de inserción de datos externos potencialmente inseguro.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Inserta datos externos directamente como HTML sin protección, generando un riesgo significativo de inyección.</td>
+          </tr>
+          <tr style="background-color: #ffffff;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>13. Indicador de carga y control de envíos:</strong> informa del procesamiento, deshabilita temporalmente el botón y restablece su estado.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Implementa el indicador, evita envíos repetidos y restablece correctamente la interfaz tras el éxito o el error.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Muestra el estado de carga, deshabilita el botón durante la petición y lo habilita nuevamente al finalizar.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Implementa solo algunos mecanismos o restablece incorrectamente el estado del botón.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No implementa indicadores ni controles adecuados o estos impiden utilizar la aplicación.</td>
+          </tr>
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>14. Gestión de errores:</strong> contempla errores de conexión, respuestas HTTP no satisfactorias y fallos de procesamiento JSON.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Maneja errores pertinentes con try/catch o mecanismos equivalentes, diferencia causas cuando es posible y permite reintentar.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Gestiona los errores principales de conexión y HTTP y muestra mensajes comprensibles.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Gestiona algunos errores, pero deja escenarios relevantes sin tratar o presenta mensajes poco claros.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No gestiona errores y la aplicación falla sin informar o presenta resultados incorrectos.</td>
+          </tr>
+          <tr style="background-color: #ffffff;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>15. Pruebas funcionales y verificación técnica:</strong> ejecuta pruebas de campos vacíos, publicación válida y revisión de Network y consola.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Demuestra todos los escenarios y verifica método, URL, encabezados, cuerpo y respuesta; corrige los errores detectados.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Ejecuta los escenarios principales y verifica que la petición y la respuesta funcionan correctamente.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Ejecuta pruebas parciales o no verifica adecuadamente la petición y la respuesta.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No demuestra las pruebas requeridas o la funcionalidad no puede verificarse.</td>
+          </tr>
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>16. Demostración funcional:</strong> ejecuta el caso de uso completo dentro de los 7 minutos previstos.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Demuestra validación, envío, respuesta y gestión de errores en una secuencia clara, dentro del tiempo y sin fallos críticos.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Demuestra la publicación válida y las funcionalidades principales dentro del tiempo previsto.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">La demostración es incompleta, supera el tiempo o presenta fallos que limitan la verificación.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No consigue demostrar el caso de uso o la funcionalidad principal no se ejecuta.</td>
+          </tr>
+          <tr style="background-color: #ffffff;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>17. Dominio individual del código:</strong> responde preguntas, identifica instrucciones relevantes y explica decisiones de implementación.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Responde con precisión, identifica instrucciones pertinentes y analiza las consecuencias de posibles modificaciones.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Explica correctamente el flujo principal y responde satisfactoriamente las preguntas fundamentales.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Responde parcialmente, confunde conceptos o necesita ayuda para relacionar la explicación con el código.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No logra explicar el código ni identificar las instrucciones principales.</td>
+          </tr>
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>18. Organización y colaboración:</strong> distribuye tareas, integra componentes y evidencia la participación de los integrantes.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Existe coordinación verificable, integración coherente y participación activa de todos; los integrantes conocen la solución completa.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">El equipo presenta una solución integrada y evidencia la participación de sus integrantes.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">La integración presenta inconsistencias o la participación de algunos integrantes es limitada.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">No existe integración funcional o no se evidencia colaboración efectiva.</td>
+          </tr>
+          <tr style="background-color: #ffffff;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>19. Calidad y mantenibilidad:</strong> utiliza nombres descriptivos, indentación consistente, funciones claras y evita duplicaciones innecesarias.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">El código es legible, modular y consistente; las funciones tienen responsabilidades claras y se evitan duplicaciones relevantes.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">El código es legible, está organizado y permite identificar las operaciones principales.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Presenta problemas de legibilidad, duplicación o funciones con demasiadas responsabilidades.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">El código es desorganizado o difícil de interpretar y mantener.</td>
+          </tr>
+          <tr style="background-color: #f8f9fa;">
+            <td style="padding: 9px; border: 1px solid #E9ECEF;"><strong>20. Comprensión de la persistencia:</strong> explica el comportamiento de JSONPlaceholder y distingue una respuesta simulada del almacenamiento persistente.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Explica la creación simulada, reconoce sus límites y propone una arquitectura adecuada para almacenar publicaciones permanentemente.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Reconoce que JSONPlaceholder no garantiza almacenamiento permanente y explica esa limitación.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Identifica parcialmente la limitación, pero confunde la respuesta recibida con el almacenamiento permanente.</td>
+            <td style="padding: 9px; border: 1px solid #E9ECEF;">Afirma que los datos se almacenan permanentemente sin evidencia o no comprende el comportamiento de la API.</td>
+          </tr>
+          <tr style="background-color: #e9ecef; font-weight: bold;">
+            <td colspan="5" style="padding: 12px; border: 1px solid #E9ECEF; text-align: right; color: #6802c1;">PUNTAJE MÁXIMO: 20 CRITERIOS × 3 PUNTOS = 60 PUNTOS</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="color: #0202c6; font-size: 17px;">Cálculo de la calificación</h3>
+    <p>La rúbrica se registra inicialmente sobre 60 puntos. Para convertir el resultado a la escala vigesimal, aplica la siguiente fórmula:</p>
+    <div style="background-color: #212322; color: #f8f9fa; padding: 18px; border-radius: 5px; font-family: monospace; font-size: 15px; text-align: center; overflow-x: auto;">
+      <span style="color: #63AEE6;">Nota sobre 20</span> = Puntaje obtenido / 3
+    </div>
+    <p style="margin-top: 12px;"><strong>Ejemplo:</strong> si un equipo obtiene 48 puntos de 60, su nota es 48 / 3 = 16 sobre 20.</p>
+  </div>
+
+  <!-- ORIENTACIONES DE EVALUACIÓN -->
+  <div style="background-color: #ffffff; border: 1px solid #E9ECEF; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+    <h2 style="color: #6802c1; font-size: 21px; margin-top: 0; padding-bottom: 8px; border-bottom: 2px solid #E9ECEF;">10. Orientaciones para la evaluación</h2>
+    <p>La evaluación considera tanto el producto desarrollado por el equipo como la comprensión individual de sus integrantes.</p>
+    <h3 style="color: #0202c6; font-size: 17px;">Evidencias de aprendizaje</h3>
+    <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+      <thead>
+        <tr style="background-color: #6802c1; color: #ffffff;">
+          <th style="padding: 10px; border: 1px solid #E9ECEF; text-align: left;">Aspecto</th>
+          <th style="padding: 10px; border: 1px solid #E9ECEF; text-align: left;">Evidencia esperada</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background-color: #ffffff;">
+          <td style="padding: 10px; border: 1px solid #E9ECEF;"><strong>Comprensión conceptual</strong></td>
+          <td style="padding: 10px; border: 1px solid #E9ECEF;">Explica los conceptos con sus propias palabras y los relaciona con el código desarrollado.</td>
+        </tr>
+        <tr style="background-color: #f8f9fa;">
+          <td style="padding: 10px; border: 1px solid #E9ECEF;"><strong>Dominio del código</strong></td>
+          <td style="padding: 10px; border: 1px solid #E9ECEF;">Identifica las instrucciones que implementan la petición, la validación y la actualización del DOM.</td>
+        </tr>
+        <tr style="background-color: #ffffff;">
+          <td style="padding: 10px; border: 1px solid #E9ECEF;"><strong>Capacidad de análisis</strong></td>
+          <td style="padding: 10px; border: 1px solid #E9ECEF;">Anticipa las consecuencias de modificar o eliminar una instrucción.</td>
+        </tr>
+        <tr style="background-color: #f8f9fa;">
+          <td style="padding: 10px; border: 1px solid #E9ECEF;"><strong>Capacidad de mejora</strong></td>
+          <td style="padding: 10px; border: 1px solid #E9ECEF;">Propone cambios técnicamente coherentes para mejorar la validación, el tratamiento de errores o la experiencia del usuario.</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="background-color: #f8f9fa; border-left: 6px solid #6802c1; padding: 16px; border-radius: 4px; margin-top: 18px;">
+      <strong style="color: #6802c1;">Aplicación de la evaluación</strong>
+      <p style="margin-bottom: 0;">El docente seleccionará tres preguntas para cada equipo: una conceptual sobre JavaScript asíncrono, una de aplicación sobre Fetch, HTTP o DOM y una de análisis sobre errores, validación o pruebas. Se recomienda alternar los integrantes que responden para verificar el aprendizaje individual.</p>
+    </div>
+  </div>
+
+  <!-- RECOMENDACIONES -->
+  <div style="background-color: #ffffff; border: 1px solid #E9ECEF; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+    <h2 style="color: #6802c1; font-size: 21px; margin-top: 0; padding-bottom: 8px; border-bottom: 2px solid #E9ECEF;">11. Recomendaciones finales</h2>
+    <ol style="padding-left: 25px;">
+      <li style="margin-bottom: 8px;">Prioriza la funcionalidad esencial antes de mejorar los estilos visuales.</li>
+      <li style="margin-bottom: 8px;">No escribas manualmente una respuesta que debe obtenerse de la API.</li>
+      <li style="margin-bottom: 8px;">Revisa la consola y la pestaña Network cuando la petición no funcione.</li>
+      <li style="margin-bottom: 8px;">Comprueba el estado HTTP y diferencia los errores de conexión de las respuestas HTTP no satisfactorias.</li>
+      <li style="margin-bottom: 8px;">Asegúrate de que el botón se restablezca incluso si ocurre un error durante la petición.</li>
+      <li style="margin-bottom: 8px;">No dependas exclusivamente de herramientas de inteligencia artificial para generar código que no puedas explicar.</li>
+      <li style="margin-bottom: 8px;">Distribuye las tareas, pero garantiza que todos los integrantes conozcan el flujo completo de la aplicación.</li>
+      <li style="margin-bottom: 8px;">Respeta los 44 minutos de trabajo y reserva los últimos 7 minutos para la demostración.</li>
+    </ol>
+  </div>
+
+  <!-- CIERRE -->
+  <div style="background-color: #f8f9fa; border: 1px solid #E9ECEF; border-radius: 6px; padding: 20px; margin-bottom: 20px;">
+    <h2 style="color: #6802c1; font-size: 21px; margin-top: 0;">12. Criterio de éxito</h2>
+    <p>El equipo habrá alcanzado el propósito del trabajo práctico cuando presente una miniaplicación funcional que valide los datos, ejecute correctamente una petición HTTP POST, procese la respuesta asíncrona, actualice el DOM y gestione los errores de forma comprensible.</p>
+    <p>Además, cada integrante deberá explicar las decisiones de implementación y demostrar que comprende el funcionamiento del código.</p>
+    <p style="font-weight: bold; color: #6802c1; margin-bottom: 0;">¡Éxitos en el desarrollo y la demostración de la miniaplicación!</p>
+  </div>
+
+  <!-- PIE DE PÁGINA INSTITUCIONAL -->
+  <div style="text-align: center; margin-top: 30px; padding-top: 15px; border-top: 1px solid #E9ECEF; font-size: 13px; color: #6c757d;">
+    <strong>INGENIERÍA WEB</strong><br>
+    Escuela Profesional de Ingeniería de Sistemas e Informática<br>
+    Trabajo práctico · JavaScript asíncrono, Fetch API y DOM
+  </div>
+
+</div>
