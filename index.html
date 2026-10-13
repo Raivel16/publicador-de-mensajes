@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Miniaplicación para publicar mensajes enviándolos a una API REST mediante Fetch y JavaScript asíncrono.">
+  <title>Publicador de mensajes</title>
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <main class="contenedor">
+    <header class="cabecera">
+      <h1>Publicador de mensajes</h1>
+      <p>Compone una publicación y envíala a la API de prueba mediante una petición HTTP POST.</p>
+    </header>
+
+    <form id="form-publicacion" class="formulario" novalidate>
+      <div class="campo">
+        <label for="campo-titulo">Título</label>
+        <input
+          type="text"
+          id="campo-titulo"
+          name="titulo"
+          placeholder="Escribe un título para tu publicación"
+          autocomplete="off"
+        >
+      </div>
+
+      <div class="campo">
+        <label for="campo-contenido">Contenido</label>
+        <textarea
+          id="campo-contenido"
+          name="contenido"
+          rows="6"
+          placeholder="Escribe el contenido de tu publicación"
+        ></textarea>
+      </div>
+
+      <button type="submit" id="boton-publicar" class="boton">
+        Publicar mensaje
+      </button>
+    </form>
+
+    <!-- Región de mensajes de validación -->
+    <div
+      id="mensaje-validacion"
+      class="mensaje mensaje--oculto"
+      role="alert"
+      aria-live="polite"
+    ></div>
+
+    <!-- Región de estado de carga -->
+    <div
+      id="estado-carga"
+      class="mensaje mensaje--carga mensaje--oculto"
+      aria-live="polite"
+      aria-busy="false"
+    ></div>
+
+    <!-- Región de resultado -->
+    <section
+      id="resultado"
+      class="resultado mensaje--oculto"
+      aria-live="polite"
+      aria-label="Resultado de la publicación"
+    ></section>
+  </main>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+/* ============================================================
+   Publicador de mensajes — hoja de estilos
+   Estados: error, éxito, carga y control deshabilitado
+   ============================================================ */
+
+:root {
+  --color-primario: #6802c1;
+  --color-primario-oscuro: #520a9a;
+  --color-exito: #1a7f37;
+  --color-exito-fondo: #e6f4ea;
+  --color-error: #b3261e;
+  --color-error-fondo: #fdecea;
+  --color-texto: #212322;
+  --color-texto-suave: #5f6368;
+  --color-borde: #d9dce1;
+  --color-fondo: #f4f5f7;
+  --radio: 8px;
+  --sombra: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  line-height: 1.6;
+}
+
+.contenedor {
+  max-width: 680px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+/* ---------- Cabecera ---------- */
+
+.cabecera h1 {
+  margin: 0 0 8px;
+  color: var(--color-primario);
+  font-size: 1.8rem;
+}
+
+.cabecera p {
+  margin: 0 0 24px;
+  color: var(--color-texto-suave);
+}
+
+/* ---------- Formulario ---------- */
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.campo input,
+.campo textarea {
+  padding: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-texto);
+  background-color: #ffffff;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  outline: none;
+  border-color: var(--color-primario);
+  box-shadow: 0 0 0 3px rgba(104, 2, 193, 0.15);
+}
+
+/* Estado inválido aplicado por JavaScript */
+.campo--invalido input,
+.campo--invalido textarea {
+  border-color: var(--color-error);
+  background-color: var(--color-error-fondo);
+}
+
+/* ---------- Botón ---------- */
+
+.boton {
+  align-self: flex-start;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--color-primario);
+  border: none;
+  border-radius: var(--radio);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.boton:hover:not(:disabled) {
+  background-color: var(--color-primario-oscuro);
+}
+
+/* Estado deshabilitado durante el envío */
+.boton:disabled {
+  background-color: #b9b9c0;
+  cursor: not-allowed;
+}
+
+/* ---------- Mensajes ---------- */
+
+.mensaje {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: var(--radio);
+  border-left: 4px solid var(--color-borde);
+  background-color: var(--color-fondo);
+  font-size: 0.95rem;
+}
+
+.mensaje--error {
+  color: var(--color-error);
+  background-color: var(--color-error-fondo);
+  border-left-color: var(--color-error);
+}
+
+.mensaje--exito {
+  color: var(--color-exito);
+  background-color: var(--color-exito-fondo);
+  border-left-color: var(--color-exito);
+}
+
+.mensaje--carga {
+  color: var(--color-primario);
+  border-left-color: var(--color-primario);
+}
+
+/* Indicador de carga animado */
+.mensaje--carga::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 10px;
+  vertical-align: -2px;
+  border: 2px solid var(--color-primario);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Ocultar mensajes sin mostrar espacio en blanco */
+.mensaje--oculto {
+  display: none;
+}
+
+/* ---------- Resultado ---------- */
+
+.resultado {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid var(--color-borde);
+  border-left: 4px solid var(--color-exito);
+  border-radius: var(--radio);
+  background-color: #ffffff;
+}
+
+.resultado h2 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+  color: var(--color-exito);
+}
+
+.resultado dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 16px;
+  font-size: 0.95rem;
+}
+
+.resultado dt {
+  font-weight: 600;
+  color: var(--color-texto-suave);
+}
+
+.resultado dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- Accesibilidad: movimiento reducido ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none;
+    animation: none;
+  }
+}
